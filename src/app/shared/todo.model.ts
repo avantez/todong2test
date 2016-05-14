@@ -1,6 +1,7 @@
 export class Todo {
   private _title: string;
   isCompleted: boolean = false;
+  editMode: boolean = false;
 
   constructor(title: string) {
     this._title = title;
@@ -11,6 +12,9 @@ export class Todo {
   }
 
   set title(newTitle: string) {
-    this._title = newTitle.trim();
+    let value = newTitle.trim();
+    if (value) {
+      this._title = value;
+    }
   }
 }

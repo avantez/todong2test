@@ -5,7 +5,13 @@
   </header>
   <section>
     <ul>
-      <li *ngFor="let todo of todos">{{todo.title}}</li>
+      <li *ngFor="let todo of todos">
+        <input type="checkbox" #isCompletedField (click)="toogleComplete(todo, isCompletedField.checked)">
+        <span *ngIf="!todo.editMode" (dblclick)="startEditingTodo(todo)" [class.completed]="todo.isCompleted">{{todo.title}}</span>
+        <input *ngIf="todo.editMode" type="text" [value]="todo.title" #editingTodoField (keyup.enter)="updateTodo(todo, editingTodoField.value)"
+          (blur)="updateTodo(todo, editingTodoField.value)">
+        <button (click)="removeTodo(todo)">delete</button>
+      </li>
     </ul>
   </section>
 </section>

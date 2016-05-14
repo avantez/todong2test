@@ -18,4 +18,29 @@ export class TodoappAppComponent {
       this.newTodoTitle = '';
     }
   }
+
+  toogleComplete(todo: Todo, value: boolean) {
+    todo.isCompleted = value;
+  }
+
+  removeTodo(todo: Todo) {
+    let index = this.todos.indexOf(todo);
+    if (index > -1) {
+      this.todos.splice(index, 1);
+    }
+  }
+
+  startEditingTodo(todo: Todo) {
+    todo.editMode = true;
+  }
+
+  updateTodo(todo: Todo, value: string) {
+    todo.title = value;
+    todo.editMode = false;
+  }
+
+  cancelEditingTodo(todo: Todo) {
+    console.log(todo)
+    todo.editMode = false;
+  }
 }
