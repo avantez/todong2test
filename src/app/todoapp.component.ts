@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Todo } from './shared';
+
 @Component({
   moduleId: module.id,
   selector: 'todoapp-app',
@@ -7,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['todoapp.component.css']
 })
 export class TodoappAppComponent {
-  title = 'todoapp works!';
+  todos: Array<Todo> = [];
+  newTodoTitle: string = '';
+
+  addTodo() {
+    if (this.newTodoTitle.length) {
+      this.todos.push(new Todo(this.newTodoTitle));
+      this.newTodoTitle = '';
+    }
+  }
 }
