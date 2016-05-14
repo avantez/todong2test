@@ -15,8 +15,9 @@ describe('App: Todoapp', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'todoapp works!\'',
+  it('should have an empty array of todos',
       inject([TodoappAppComponent], (app: TodoappAppComponent) => {
-    expect(app.title).toEqual('todoapp works!');
+    expect(app.todos).toBeTruthy();
+    expect(app.todos.length).toEqual(0);
   }));
 });
