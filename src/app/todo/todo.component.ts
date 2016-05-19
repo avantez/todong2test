@@ -15,12 +15,14 @@ import { Todo } from '../shared';
 })
 export class TodoComponent {
   @Input() todo: Todo;
+  @Output() changed: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() removing: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   constructor() { }
 
   toogleComplete() {
     this.todo.isCompleted = !this.todo.isCompleted;
+    this.changed.emit(this.todo);
   }
 
   startEditing() {
@@ -34,6 +36,7 @@ export class TodoComponent {
   update(value: string) {
     this.todo.title = value;
     this.todo.editMode = false;
+    this.changed.emit(this.todo);
   }
 
   remove() {

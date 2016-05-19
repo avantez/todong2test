@@ -5,8 +5,8 @@
   </header>
   <section>
     <ul>
-      <li *ngFor="let currentTodo of todos">
-        <td-todo [todo]="currentTodo" (removing)="removeTodo($event)"></td-todo>
+      <li *ngFor="let currentTodo of todoService.todos">
+        <td-todo [todo]="currentTodo" (changed)="updateTodo($event)" (removing)="removeTodo($event)"></td-todo>
       </li>
     </ul>
   </section>

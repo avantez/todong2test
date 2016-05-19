@@ -1,10 +1,13 @@
 export class Todo {
   private _title: string;
-  isCompleted: boolean = false;
+  isCompleted: boolean;
   editMode: boolean = false;
 
-  constructor(title: string) {
-    this._title = title;
+  constructor(input: string);
+  constructor(input: {_title: string, isCompleted: boolean});
+  constructor(input?: any) {
+    this._title = input._title || input;
+    this.isCompleted = input.isCompleted || false;
   }
 
   get title(): string {

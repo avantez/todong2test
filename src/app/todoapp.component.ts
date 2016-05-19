@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { TodoComponent } from './todo';
-import { Todo } from './shared';
+import { Todo, TodoService } from './shared';
 
 @Component({
   moduleId: module.id,
@@ -11,20 +11,22 @@ import { Todo } from './shared';
   directives: [TodoComponent]
 })
 export class TodoappAppComponent {
-  todos: Array<Todo> = [];
   newTodoTitle: string = '';
+
+  constructor(public todoService: TodoService) { }
 
   addTodo() {
     if (this.newTodoTitle.length) {
-      this.todos.push(new Todo(this.newTodoTitle));
+      this.todoService.add(new Todo(this.newTodoTitle));
       this.newTodoTitle = '';
     }
   }
 
+  updateTodo(todo: Todo) {
+    this.todoService.update(todo);
+  }
+
   removeTodo(todo: Todo) {
-    let index = this.todos.indexOf(todo);
-    if (index > -1) {
-      this.todos.splice(index, 1);
-    }
+    this.todoService.remove(todo);
   }
 }
