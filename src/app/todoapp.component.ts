@@ -8,7 +8,8 @@ import { Todo, TodoService } from './shared';
   selector: 'todoapp-app',
   templateUrl: 'todoapp.component.html',
   styleUrls: ['todoapp.component.css'],
-  directives: [TodoComponent]
+  directives: [TodoComponent],
+  providers: [TodoService]
 })
 export class TodoappAppComponent {
   newTodoTitle: string = '';
