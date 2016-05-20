@@ -5,7 +5,8 @@
   </header>
   <section>
     <ul>
-      <li *ngFor="let currentTodo of todoService.todos">
+      {{filterParam | json}}
+      <li *ngFor="let currentTodo of (todoService.todos | filter: filterBy)">
         <td-todo [todo]="currentTodo" (changed)="updateTodo($event)" (removing)="removeTodo($event)"></td-todo>
       </li>
     </ul>

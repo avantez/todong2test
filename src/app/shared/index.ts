@@ -1,2 +1,3 @@
 export * from './todo.model';
 export * from './todo.service';
+export * from './filter.pipe';

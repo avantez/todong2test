@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { TodoComponent } from './todo';
-import { Todo, TodoService } from './shared';
+import { Todo, TodoService, FilterPipe } from './shared';
 
 @Component({
   moduleId: module.id,
@@ -9,12 +9,18 @@ import { Todo, TodoService } from './shared';
   templateUrl: 'todoapp.component.html',
   styleUrls: ['todoapp.component.css'],
   directives: [TodoComponent],
-  providers: [TodoService]
+  providers: [TodoService],
+  pipes: [FilterPipe]
 })
-export class TodoappAppComponent {
+export class TodoappAppComponent implements OnInit {
   newTodoTitle: string = '';
+  filterBy: string;
 
   constructor(public todoService: TodoService) { }
+
+  ngOnInit() {
+    this.filterBy = 'all';
+  }
 
   addTodo() {
     if (this.newTodoTitle.length) {
