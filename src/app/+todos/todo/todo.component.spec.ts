@@ -3,12 +3,13 @@ import {
   beforeEachProviders,
   describe,
   expect,
-  it,
   inject,
+  it,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { TodoComponent } from './todo.component';
 
 describe('Component: Todo', () => {
@@ -20,9 +21,9 @@ describe('Component: Todo', () => {
   }));
 
   it('should inject the component', inject([TodoComponent],
-      (component: TodoComponent) => {
-    expect(component).toBeTruthy();
-  }));
+    (component: TodoComponent) => {
+      expect(component).toBeTruthy();
+    }));
 
   it('should create the component', inject([], () => {
     return builder.createAsync(TodoComponentTestController)

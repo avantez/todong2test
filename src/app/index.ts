@@ -1,2 +1,2 @@
 export { environment } from './environment';
-export { TodoappAppComponent } from './todoapp.component';
+export { TodoAppComponent } from './todoapp.component';

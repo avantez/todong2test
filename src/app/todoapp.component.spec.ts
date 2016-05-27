@@ -5,13 +5,14 @@ import {
   it,
   inject
 } from '@angular/core/testing';
-import { TodoappAppComponent } from '../app/todoapp.component';
 
-beforeEachProviders(() => [TodoappAppComponent]);
+import { TodoAppComponent } from '../app/todoapp.component';
+
+beforeEachProviders(() => [TodoAppComponent]);
 
 describe('App: Todoapp', () => {
   it('should create the app',
-      inject([TodoappAppComponent], (app: TodoappAppComponent) => {
+      inject([TodoAppComponent], (app: TodoAppComponent) => {
     expect(app).toBeTruthy();
   }));
 });

@@ -9,6 +9,7 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
 import { TodosComponent } from './todos.component';
 
 describe('Component: Todos', () => {
@@ -20,9 +21,9 @@ describe('Component: Todos', () => {
   }));
 
   it('should inject the component', inject([TodosComponent],
-      (component: TodosComponent) => {
-    expect(component).toBeTruthy();
-  }));
+    (component: TodosComponent) => {
+      expect(component).toBeTruthy();
+    }));
 
   it('should create the component', inject([], () => {
     return builder.createAsync(TodosComponentTestController)
@@ -37,7 +38,7 @@ describe('Component: Todos', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-todos></app-todos>
+    <td-todos></td-todos>
   `,
   directives: [TodosComponent]
 })

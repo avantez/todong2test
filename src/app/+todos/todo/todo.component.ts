@@ -18,8 +18,6 @@ export class TodoComponent {
   @Output() changed: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() removing: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  constructor() { }
-
   toogleComplete() {
     this.todo.isCompleted = !this.todo.isCompleted;
     this.changed.emit(this.todo);

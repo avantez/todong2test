@@ -3,4 +3,5 @@
   <span (dblclick)="startEditing()" [class.completed]="todo.isCompleted">{{todo.title}}</span>
   <button (click)="remove()">delete</button>
 </div>
-<input *ngIf="todo.editMode" type="text" [value]="todo.title" #editing (keyup.enter)="update(editing.value)" (blur)="update(editing.value)" (keyup.esc)="cancelEditing()">
+<input *ngIf="todo.editMode" type="text" [value]="todo.title" #editing (keyup.enter)="update(editing.value)" (blur)="update(editing.value)"
+  (keyup.esc)="cancelEditing()">

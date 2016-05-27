@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import {
-  Router,
-  Routes,
   ROUTER_DIRECTIVES,
-  ROUTER_PROVIDERS
+  ROUTER_PROVIDERS,
+  Router,
+  Routes
 } from '@angular/router';
 
 import { TodosComponent } from './+todos';
 
 @Component({
   moduleId: module.id,
-  selector: 'todoapp-app',
+  selector: 'todoapp',
   templateUrl: 'todoapp.component.html',
   styleUrls: ['todoapp.component.css'],
   directives: [ROUTER_DIRECTIVES],
@@ -19,7 +19,7 @@ import { TodosComponent } from './+todos';
 @Routes([
   { path: '/todos', component: TodosComponent }
 ])
-export class TodoappAppComponent {
+export class TodoAppComponent {
 
   constructor(private router: Router) { }
 }

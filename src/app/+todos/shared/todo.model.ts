@@ -4,7 +4,7 @@ export class Todo {
   editMode: boolean = false;
 
   constructor(input: string);
-  constructor(input: {_title: string, isCompleted: boolean});
+  constructor(input: { _title: string, isCompleted: boolean });
   constructor(input?: any) {
     this._title = input._title || input;
     this.isCompleted = input.isCompleted || false;
