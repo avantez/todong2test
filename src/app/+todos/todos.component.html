@@ -1,0 +1,17 @@
+<section>
+  <header>
+    <h1>todos</h1>
+    <input type="text" placeholder="What needs to be done?" [(ngModel)]="newTodoTitle" (keyup.enter)="addTodo()">
+  </header>
+  <section>
+    <ul>
+      {{filterParam | json}}
+      <li *ngFor="let currentTodo of (todoService.todos | filter: filterBy)">
+        <td-todo [todo]="currentTodo" (changed)="updateTodo($event)" (removing)="removeTodo($event)"></td-todo>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<a [routerLink]="['', {filter: 'active'}]">Active</a>
+<a [routerLink]="['', {filter: 'completed'}]">Completed</a>

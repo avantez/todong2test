@@ -1,39 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {
+  Router,
+  Routes,
+  ROUTER_DIRECTIVES,
+  ROUTER_PROVIDERS
+} from '@angular/router';
 
-import { TodoComponent } from './todo';
-import { Todo, TodoService, FilterPipe } from './shared';
+import { TodosComponent } from './+todos';
 
 @Component({
   moduleId: module.id,
   selector: 'todoapp-app',
   templateUrl: 'todoapp.component.html',
   styleUrls: ['todoapp.component.css'],
-  directives: [TodoComponent],
-  providers: [TodoService],
-  pipes: [FilterPipe]
+  directives: [ROUTER_DIRECTIVES],
+  providers: [ROUTER_PROVIDERS]
 })
-export class TodoappAppComponent implements OnInit {
-  newTodoTitle: string = '';
-  filterBy: string;
+@Routes([
+  { path: '/todos', component: TodosComponent }
+])
+export class TodoappAppComponent {
 
-  constructor(public todoService: TodoService) { }
-
-  ngOnInit() {
-    this.filterBy = 'all';
-  }
-
-  addTodo() {
-    if (this.newTodoTitle.length) {
-      this.todoService.add(new Todo(this.newTodoTitle));
-      this.newTodoTitle = '';
-    }
-  }
-
-  updateTodo(todo: Todo) {
-    this.todoService.update(todo);
-  }
-
-  removeTodo(todo: Todo) {
-    this.todoService.remove(todo);
-  }
+  constructor(private router: Router) { }
 }

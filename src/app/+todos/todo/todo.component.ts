@@ -1,8 +1,8 @@
 import {
-  Input,
-  Output,
   Component,
-  EventEmitter
+  EventEmitter,
+  Input,
+  Output
 } from '@angular/core';
 
 import { Todo } from '../shared';
